@@ -1,0 +1,2 @@
+= lpc8xx_bootapi
+Invoke LPC8xx boot ROM APIs from Rust
