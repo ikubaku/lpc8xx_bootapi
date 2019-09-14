@@ -1,3 +1,9 @@
 = lpc8xx_bootapi
 
 Invoke LPC8xx boot ROM APIs from Rust
+
+== Usage
+[source,rust]
+----
+extern crate lpc8xx_bootapi;
+----
