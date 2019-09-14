@@ -7,3 +7,10 @@ Invoke LPC8xx boot ROM APIs from Rust
 ----
 extern crate lpc8xx_bootapi;
 ----
+
+== Build
+=== Examples
+[source,shell]
+----
+$ cargo build --examples --target thumbv6m-none-eabi -- -C link-arg=-Tlink.x
+----
