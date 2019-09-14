@@ -22,14 +22,14 @@ pub struct Param {
 
 #[repr(C)]
 pub struct Apis {
-    get_mem_size: extern "C" fn() -> usize,
-    setup: extern "C" fn(base_address: u32, ram: *mut u8) -> *mut usize,
-    init: extern "C" fn(handle: *mut usize, set: Config) -> u32,
-    get_char: extern "C" fn(handle: *mut usize) -> u8,
-    put_char: extern "C" fn(handle: *mut usize, data: u8),
-    get_line: extern "C" fn(handle: *mut usize, param: Param) -> u32,
-    put_line: extern "C" fn(handle: *mut usize, param: Param) -> u32,
-    uart_isr: extern "C" fn(handle: *mut usize),
+    pub get_mem_size: extern "C" fn() -> usize,
+    pub setup: extern "C" fn(base_address: u32, ram: *mut u8) -> *mut usize,
+    pub init: extern "C" fn(handle: *mut usize, set: Config) -> u32,
+    pub get_char: extern "C" fn(handle: *mut usize) -> u8,
+    pub put_char: extern "C" fn(handle: *mut usize, data: u8),
+    pub get_line: extern "C" fn(handle: *mut usize, param: Param) -> u32,
+    pub put_line: extern "C" fn(handle: *mut usize, param: Param) -> u32,
+    pub uart_isr: extern "C" fn(handle: *mut usize),
 }
 
 pub fn take() -> *const Apis {
