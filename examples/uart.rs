@@ -1,3 +1,6 @@
+#![no_std]
+#![no_main]
+
 extern crate cortex_m_rt;
 use cortex_m_rt::{entry, exception, ExceptionFrame};
 
@@ -35,7 +38,12 @@ fn main() -> !{
     init_stupid_alloc();
     uart_api_ptr = uart::take();
 
-    let memsize = uart_api_ptr.get_mem_size();
+    let memsize =
+    unsafe {
+        ((*uart_api_ptr).get_mem_size)()
+    };
+
+    usart_heap = stupid_alloc(memsize);
 
     // halt
     loop {}
