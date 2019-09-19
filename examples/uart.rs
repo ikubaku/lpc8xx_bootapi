@@ -45,6 +45,22 @@ fn main() -> !{
 
     usart_heap = stupid_alloc(memsize);
 
+    let uart_handle = unsafe {
+        ((*uart_api_ptr).setup)(0x40004006, usart_heap as *mut u8)
+    };
+
+    let uart_config = uart::Config{
+        sys_clk_in_hz : 12000,
+        baudrate_in_hz : 115200,
+        config : 0b00000001,
+        sync_mod : 0b00000000,
+        error_en : 0b0000000000000000,
+    };
+
+    unsafe {
+        ((*uart_api_ptr).init)(uart_handle, uart_config);
+    }
+
     // halt
     loop {}
 }
