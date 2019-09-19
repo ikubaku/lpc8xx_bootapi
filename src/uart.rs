@@ -4,11 +4,11 @@ const DRIVER_OFFSET: usize = 0x24;
 
 #[repr(C)]
 pub struct Config {
-    sys_clk_in_hz: u32,
-    baudrate_in_hz: u32,
-    config: u8,
-    sync_mod: u8,
-    error_en: u16,
+    pub sys_clk_in_hz: u32,
+    pub baudrate_in_hz: u32,
+    pub config: u8,
+    pub sync_mod: u8,
+    pub error_en: u16,
 }
 
 #[repr(C)]
